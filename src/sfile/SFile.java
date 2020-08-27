@@ -1,4 +1,6 @@
-import java.util.File;
+package sfile;
+
+import java.io.File;
 
 
 public class SFile{
