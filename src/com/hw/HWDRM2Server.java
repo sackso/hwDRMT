@@ -5,7 +5,13 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-
+/**
+ * cd "C:\Program Files\Project\workspace\hwDRMT\bin"
+ * start "C:\Program Files\jdk-11.0.2\bin\rmiregistry
+ * "C:\Program Files\jdk-11.0.2\bin\java" com.hw.HWDRM2Server
+ * @author do2014p0001
+ *
+ */
 public class HWDRM2Server implements HWDRM2IF {
 	public HWDRM2Server() {
 	}
