@@ -30,7 +30,8 @@ public class HWDRM2Client {
 				finfo[i].setFiledata(data);
 			}
 
-			stub.setFiles(finfo);
+			//DRM 해제된 파일을 리턴받음
+			HWNetFileUtil[] retInfo =  stub.setFiles(finfo);
 
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

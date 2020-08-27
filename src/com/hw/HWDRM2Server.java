@@ -34,7 +34,7 @@ public class HWDRM2Server implements HWDRM2IF {
 	}
 
 	@Override
-	public void setFiles(HWNetFileUtil[] info) throws RemoteException { // 클라이언트가 호출할 서버측의 메소드
+	public HWNetFileUtil[] setFiles(HWNetFileUtil[] info) throws RemoteException { // 클라이언트가 호출할 서버측의 메소드
 		FileOutputStream fout = null;
 		String dir = "C:/tempdata/";
 		for (int i = 0; i < info.length; i++) {
@@ -49,6 +49,8 @@ public class HWDRM2Server implements HWDRM2IF {
 		
 		//기록한 파일을 DRM 해제
 		
+		//해제한 파일을 다시 리턴
+		return info;
 		
 	}
 
