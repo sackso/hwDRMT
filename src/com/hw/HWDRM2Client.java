@@ -2,6 +2,7 @@ package com.hw;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -19,19 +20,21 @@ public class HWDRM2Client {
 			File[] f = new File[1];
 			f[0] = new File("C:\\Project\\workspace\\20200824_ws.code-workspace");
 
-			HWNetFileUtil[] finfo = new HWNetFileUtil[1];
+			HWNetFile[] finfo = new HWNetFile[1];
 			for (int i = 0; i < f.length; i++) { // 1개의 파일을 읽어서 byte[]에 담아서 서버측 메소드에 전달하면 된다.
 				int len = (int) f[i].length();
 				FileInputStream fin = new FileInputStream(f[i]);
 				byte[] data = new byte[len];
 				fin.read(data);
-				finfo[i] = new HWNetFileUtil();
+				finfo[i] = new HWNetFile();
 				finfo[i].setFilename(f[i].getName());
 				finfo[i].setFiledata(data);
 			}
 
 			//DRM 해제된 파일을 리턴받음
-			HWNetFileUtil[] retInfo =  stub.setFiles(finfo);
+			HWNetFile[] retInfo =  stub.setFiles(finfo);
+			
+			
 
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

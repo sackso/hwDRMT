@@ -34,23 +34,10 @@ public class HWDRM2Server implements HWDRM2IF {
 	}
 
 	@Override
-	public HWNetFileUtil[] setFiles(HWNetFileUtil[] info) throws RemoteException { // 클라이언트가 호출할 서버측의 메소드
-		FileOutputStream fout = null;
-		String dir = "C:/tempdata/";
-		for (int i = 0; i < info.length; i++) {
-			try {
-				fout = new FileOutputStream(dir + info[i].getFilename());
-				fout.write(info[i].getFiledata()); // 클라이언트에서 전달한 파일데이터(byte[])를 서버측의 디스크에 기록한다.
-				fout.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+	public HWNetFile[] setFiles(HWNetFile[] infos) throws RemoteException { // 클라이언트가 호출할 서버측의 메소드
+		HWNetFile[] nInfos = HWNetFileUtil.recvFileToMake("C:/tempdata/server/",infos);
 		
-		//기록한 파일을 DRM 해제
-		
-		//해제한 파일을 다시 리턴
-		return info;
+		return nInfos;
 		
 	}
 

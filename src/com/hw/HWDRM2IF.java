@@ -6,6 +6,6 @@ import java.rmi.RemoteException;
 public interface HWDRM2IF extends Remote{
     
 
-	HWNetFileUtil[] setFiles(HWNetFileUtil[] info) throws RemoteException;
+	HWNetFile[] setFiles(HWNetFile[] info) throws RemoteException;
 
 }
